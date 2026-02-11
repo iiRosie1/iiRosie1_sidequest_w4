@@ -17,6 +17,7 @@ Sidequest Week 4
 ---
 
 ## Setup and Interaction Instructions
+Move: A/D or ←/→ • Jump: Space/W/↑
 
 ---
 
