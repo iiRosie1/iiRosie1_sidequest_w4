@@ -14,6 +14,8 @@ This file orchestrates everything:
 This matches the structure of the original blob sketch from Week 2 but moves
 details into classes.
 */
+let transitioning = false;
+
 
 let data; // raw JSON data
 let levelIndex = 0;
@@ -40,6 +42,7 @@ function setup() {
 }
 
 function draw() {
+
   // 1) Draw the world (background + platforms)
   world.drawWorld();
 
@@ -51,6 +54,17 @@ function draw() {
   fill(0);
   text(world.name, 10, 18);
   text("Move: A/D or ←/→ • Jump: Space/W/↑ • Next: N", 10, 36);
+
+  if (!transitioning && levelIndex === 0) {
+    if (player.x >= width - player.r) {
+      transitioning = true;
+  
+      const next = levelIndex + 1;
+      if (next < data.levels.length) {
+        loadLevel(next);
+      }
+    }
+  }
 }
 
 function keyPressed() {
@@ -60,10 +74,12 @@ function keyPressed() {
   }
 
   // Optional: cycle levels with N (as with the earlier examples)
+  /*
   if (key === "n" || key === "N") {
     const next = (levelIndex + 1) % data.levels.length;
     loadLevel(next);
   }
+    */
 }
 
 /*
@@ -73,6 +89,7 @@ Load a level by index:
 - spawn player using level start + physics
 */
 function loadLevel(i) {
+  transitioning = false;
   levelIndex = i;
 
   // Create the world object from the JSON level object.
