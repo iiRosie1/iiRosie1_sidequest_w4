@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "levels": [
     {
-      "name": "Intro Steps",
+      "name": "Level 1",
       "gravity": 0.65,
       "jumpV": -11.0,
       "theme": { "bg": "#F0F0F0", "platform": "#C8C8C8", "blob": "#1478FF" },

@@ -53,7 +53,7 @@ function draw() {
   // 3) HUD
   fill(0);
   text(world.name, 10, 18);
-  text("Move: A/D or ←/→ • Jump: Space/W/↑ • Next: N", 10, 36);
+  text("Move: A/D or ←/→ • Jump: Space/W/↑", 10, 36);
 
   if (!transitioning && levelIndex === 0) {
     if (player.x >= width - player.r) {
